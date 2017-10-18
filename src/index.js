@@ -46,12 +46,30 @@
 
 
 //可变参数
-function yang(... args){
-    console.log(args[0]);
-    console.log(args[1]);
-    console.log(args[2]);
+// function yang(... args){
+//     console.log(args[0]);
+//     console.log(args[1]);
+//     console.log(args[2]);
+// }
+// yang(1,2,3);
+
+// 扩展运算符针对于业务的时候
+// 将a中的数据复制到b中，并且开辟新的空间
+// let arga = [1,2,3];
+// let argb = [...arga];
+// argb.push(3);
+// console.log(arga);
+// console.log(argb);
+
+// 可变参数  rest   第一个就是   只是针对剩余的参数个数
+// for of 使用循环
+function argsArgs(first,...args){
+    for(let val of args){
+        console.log(val);
+    }
+    // console.log(args.length);
 }
-yang(1,2,3);
+argsArgs(0,1,2,3,4,5,6,7,8);
 
 
 

@@ -36,6 +36,7 @@
 // ({foos} = {foos:'yang'});
 // console.log(foos);
 
+
 // 拆分字符串
 // const [a,b,c,d,e,f] = 'yangnh';
 // console.log(a);
@@ -47,9 +48,52 @@
 
 
 //可变参数
-function yang() {
-    console.log(arguments.length <= 0 ? undefined : arguments[0]);
-    console.log(arguments.length <= 1 ? undefined : arguments[1]);
-    console.log(arguments.length <= 2 ? undefined : arguments[2]);
+// function yang(... args){
+//     console.log(args[0]);
+//     console.log(args[1]);
+//     console.log(args[2]);
+// }
+// yang(1,2,3);
+
+// 扩展运算符针对于业务的时候
+// 将a中的数据复制到b中，并且开辟新的空间
+// let arga = [1,2,3];
+// let argb = [...arga];
+// argb.push(3);
+// console.log(arga);
+// console.log(argb);
+
+// 可变参数  rest   第一个就是   只是针对剩余的参数个数
+function argsArgs(first) {
+    for (var _len = arguments.length, args = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+        args[_key - 1] = arguments[_key];
+    }
+
+    var _iteratorNormalCompletion = true;
+    var _didIteratorError = false;
+    var _iteratorError = undefined;
+
+    try {
+        for (var _iterator = args[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+            var val = _step.value;
+
+            console.log(val);
+        }
+    } catch (err) {
+        _didIteratorError = true;
+        _iteratorError = err;
+    } finally {
+        try {
+            if (!_iteratorNormalCompletion && _iterator.return) {
+                _iterator.return();
+            }
+        } finally {
+            if (_didIteratorError) {
+                throw _iteratorError;
+            }
+        }
+    }
+
+    console.log(args.length);
 }
-yang(1, 2, 3);
+argsArgs(0, 1, 2, 3, 4, 5, 6, 7, 8);
